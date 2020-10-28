@@ -1,0 +1,6 @@
+<div id="alertsContainer" class="alerts-container">
+    <div *ngFor="let alert of getAlerts()" class="alert" [ngClass]="alert.type">
+        {{ alert.messageKey | translate }}
+        <fa-icon *ngIf="alert.closable" class="show-password-icon" [icon]="faClose" (click)="close(alert.messageKey)"></fa-icon>
+    </div>
+</div>

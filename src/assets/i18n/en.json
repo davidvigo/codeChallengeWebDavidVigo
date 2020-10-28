@@ -1,0 +1,30 @@
+{
+    "auth": {
+        "label": {
+            "login": "Login",
+            "loginTitle": "Welcome, please sign in.",
+            "password": "Password",
+            "user": "Username"
+        },
+        "error": {
+            "incorrectCredentials": "No account was found with the username and password you provided"
+        }
+    },
+    "common": {
+        "validation": {
+            "required": "Field required"
+        }
+    },
+    "transactions": {
+        "label": {
+            "amount": "Amount",
+            "date": "Date",
+            "description": "Description",
+            "fee": "Fee",
+            "filter": "Filter by description",
+            "id": "ID",
+            "noDataFound": "No results found for the description provided",
+            "userId": "User ID"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+.toolbar {
+    height: 4rem;
+    width: 100%;
+    background-color: #f1f2f6;
+
+    .logout {
+        float: right;
+        height: 100%;
+        padding: 0.5rem;
+        font-size: 2rem;
+        color: var(--font-color);
+        cursor: pointer;
+    }
+
+    .logout:hover {
+        color: #222a9b;
+    }
+}

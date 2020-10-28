@@ -1,0 +1,26 @@
+<div class="auth-container col-12 col-lg-6 col-xl-4">
+    <p class="title">{{ 'auth.label.loginTitle' | translate }}</p>
+    <form #ngForm="ngForm">
+        <div class="form" [formGroup]="formGroup">
+            <div class="form-group">
+                <label for="user">{{ 'auth.label.user' | translate }}</label>
+                <input id="user" class="form-control" [formControlName]="'user'">
+                <span class="error" *ngIf="formGroup.controls.user.invalid && (formGroup.controls.user.dirty || ngForm.submitted)">
+                    {{ 'common.validation.required' | translate }}
+                </span>
+            </div>
+            <div class="form-group password-group">
+                <label for="password">{{ 'auth.label.password' | translate }}</label>
+                <input id="password" class="form-control" [formControlName]="'password'" [type]="hidePassword ? 'password' : 'text'">
+                <fa-icon class="show-password-icon" [icon]="hidePassword ? faEyeSlash : faEye" (click)="hidePassword = !hidePassword"></fa-icon>
+                <span class="error" *ngIf="formGroup.controls.password.invalid && (formGroup.controls.password.dirty || ngForm.submitted)">
+                    {{ 'common.validation.required' | translate }}
+                </span>
+            </div>
+            <button id="submitButton" type="submit" class="login-button" (click)=submit() (keyup.enter)=submit()>
+                {{ 'auth.label.login' | translate }}
+            </button>
+            <app-core-alert [channel]="alertChannel"></app-core-alert>
+        </div>
+    </form>
+</div>

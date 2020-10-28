@@ -1,0 +1,36 @@
+<div class="transaction-container">
+    <div class="col-12 col-lg-4" [formGroup]="filterForm">
+        <div class="form-group">
+            <label for="description">{{ 'transactions.label.filter' | translate }}</label>
+            <input id="description" class="form-control" [formControlName]="'description'">
+        </div>
+    </div>
+    <app-core-alert [channel]="alertChannel"></app-core-alert>
+    <div *ngIf="tableData?.length">
+        <app-core-table [dataSource]="tableData" [columns]="columnDefs">
+            <ng-container *ngFor="let c of columnDefs" [cdkColumnDef]="c.columnDef">
+                <th cdk-header-cell *cdkHeaderCellDef [ngSwitch]="c.columnDef" class="table-header">
+                    <ng-container *ngSwitchCase="'date'">
+                    <span class="date-header" (click)="sort()">
+                        {{ c.header | translate }}
+                        <fa-icon [icon]="sortAscending ? sortUpIcon : sortDownIcon"></fa-icon>
+                    </span>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        <span>{{ c.header | translate }}</span>
+                    </ng-container>
+                </th>
+                <td cdk-cell *cdkCellDef="let row" [ngSwitch]="c.columnDef" [ngClass]="{ 'align-right': c.alignRight }">
+                    <ng-container *ngSwitchCase="'date'">
+                        <span class="column">{{row[c.propName] | date:'dd-MM-yyyy'}}</span>
+                    </ng-container>
+                    <ng-container *ngSwitchDefault>
+                        <span class="column">{{row[c.propName] ? row[c.propName] : ''}}</span>
+                    </ng-container>
+                </td>
+            </ng-container>
+        </app-core-table>
+    </div>
+</div>
+
+<ng-template #alertTemplate><span>No data found!</span></ng-template>

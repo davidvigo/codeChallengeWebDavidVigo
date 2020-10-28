@@ -1,0 +1,27 @@
+.alerts-container {
+    width: 100%;
+}
+
+.alert {
+    width: 100%;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    position: relative;
+
+    fa-icon {
+        cursor: pointer;
+        position: absolute;
+        top: 4px;
+        right: 12px;
+    }
+}
+
+.danger {
+    background-color: #ff7b7d;
+    color: #b33939;
+}
+
+.warning {
+    background-color: #ffda79;
+    color: #976826;
+}

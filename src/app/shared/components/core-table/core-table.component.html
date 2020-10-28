@@ -1,0 +1,12 @@
+<div class="table-container">
+    <table class="table table-hover" cdk-table [dataSource]="dataSource">
+        <ng-content></ng-content>
+        <thead>
+            <tr cdk-header-row *cdkHeaderRowDef="colDefs"></tr>
+        </thead>
+        <tbody>
+            <tr cdk-row *cdkRowDef="let row; columns: colDefs"></tr>
+        </tbody>
+    </table>
+</div>
+
